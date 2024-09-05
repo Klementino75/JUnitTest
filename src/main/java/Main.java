@@ -19,8 +19,8 @@ public class Main {
         while (leftIndex < rightIndex) {
             int foundedSum = array[leftIndex] + array[rightIndex];
             if (foundedSum == sum) {
-                System.out.println("Ответ: " + Arrays.toString(new int[]{array[leftIndex], array[rightIndex]}));
-                return new int[]{array[leftIndex], array[rightIndex]};
+                System.out.println("Ответ: " + Arrays.toString(new int[] {array[leftIndex], array[rightIndex]} ));
+                return new int[] {array[leftIndex], array[rightIndex]};
             }
             if (foundedSum > sum)
                 rightIndex--;

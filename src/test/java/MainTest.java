@@ -29,13 +29,15 @@ public class MainTest {
     @MethodSource
     public void canTestParam(int sum, boolean expected) {
         System.out.println("ParameterizedTest рекурсии на true и false.");
+
         boolean result = Main.can(sum);
+
         Assertions.assertEquals(expected, result);
         System.out.println(expected + " = " + result + " - Ok!");
     }
     public static Stream<Arguments> canTestParam() {
         return Stream.of(Arguments.of(17, true),
-                Arguments.of(2,false));
+                Arguments.of(2, false));
     }
 
     @DisplayName("Проверка массивов")
@@ -43,7 +45,9 @@ public class MainTest {
     @MethodSource
     public void findToSumInArrayParam(int[] array, int sum, int[] expected) {
         System.out.println("ParameterizedTest проверки на массивах.");
+
         int[] result = main.findToSum(array, sum);
+
         Assertions.assertArrayEquals(expected, result);
     }
     public static Stream<Arguments> findToSumInArrayParam() {
@@ -52,8 +56,8 @@ public class MainTest {
                 Arguments.of(new int[] {5, 1, 3, 2, 7}, 20, new int[] {}));
     }
 
-    @Test
     @DisplayName("Проверка на массивах с Hamcrest")
+    @Test
     public void findToSumInArrayHamcrest() {
         System.out.println("Hamcrest");
         int[] array = {5, 1, 3, 2, 7};
@@ -64,8 +68,8 @@ public class MainTest {
         assertThat(Arrays.toString(result), isArray(new Integer[] {3, 7}));
     }
 
+    @DisplayName("Проверка длины массивах с Hamcrest")
     @Test
-    @DisplayName("Проверка длины массива с Hamcrest")
     public void givenArray_whenCheck_thenSize() {
         System.out.println("Проверка длины массива с Hamcrest.");
         Integer[] array = new Integer[] {5, 1, 3, 2, 7};
